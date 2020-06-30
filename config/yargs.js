@@ -25,6 +25,7 @@ const argv = require('yargs')
         },
         completado: {
             alias: 'c',
+            demand: true,
             default: true,
             desc: 'Marca como completado o pendiente la tarea'
         }
