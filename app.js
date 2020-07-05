@@ -28,6 +28,10 @@ switch (comando) {
         console.log(actualizado);
         break;
 
+    case 'borrar':
+        let borrado = porHacer.borrar( argv.descripcion);
+        break;
+
     default: console.log('comando desconocido');
 
 }

@@ -49,8 +49,27 @@ const actualizar = (descripcion, completado = true) => {
     if (index => 0){
         listadoPorHacer[index].completado = completado;
         guardarDB();
+        console.log('Tarea Actualizada');
         return true;
     }else {
+        return false;
+    }
+
+};
+
+const borrar = (descripcion) => {
+    cargarDB();
+    let index = listadoPorHacer.findIndex(tarea => {
+        return tarea.descripcion === descripcion;
+    });
+
+    if (index >= 0){
+        listadoPorHacer.splice(index,1);
+        guardarDB();
+        console.log("Tarea eliminada");
+        return true;
+    }else {
+        console.log("Tarea No existe");
         return false;
     }
 
@@ -59,5 +78,6 @@ const actualizar = (descripcion, completado = true) => {
 module.exports = {
     crear,
     getListado,
-    actualizar
+    actualizar,
+    borrar
 };
